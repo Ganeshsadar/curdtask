@@ -1,0 +1,132 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+
+        <h1>
+            Angular curd
+        </h1>
+        <div class="d-flex">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">
+                Add Employ
+            </button>
+
+        </div>
+    </div>
+</nav>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">sr.no</th>
+            <th scope="col">first_name</th>
+            <th scope="col">last_name</th>
+            <th scope="col">email</th>
+            <th scope="col">MoNo</th>
+            <th scope="col">salary</th>
+
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of empData let i=index">
+            <td>{{i+1}}</td>
+            <td>{{row.first_name}}</td>
+            <td>{{row.last_name}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.MoNo}}</td>
+            <td>{{row.salary}}</td>
+            <td>
+                <button  (click)="onEdit(row.id,i)"  class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" >edit</button>
+                <button (click)="deletEmployee(row.id)"  class="btn btn-danger mx-3">delet</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- Button trigger modal -->
+ <!-- <button type="submit" (click)="getAllEmployee()">call</button>   -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Employ detail</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  [formGroup]="formValu" >
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">first_name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="first_name">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">last_name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="last_name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">email</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">MoNo</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="MoNo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">salary</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="salary">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancle" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="postEmployeeDetails()" class="btn btn-primary ">Add</button>
+                <!-- <button type="button" (click)="Update()" class="btn btn-primary ">Update</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Employ</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  [formGroup]="formValu1" >
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">first_name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="first_name">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">last_name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="last_name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">email</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">MoNo</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="MoNo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">salary</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" formControlName="salary">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancle" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" (click)="postEmployeeDetails()" class="btn btn-primary ">Add</button> -->
+                <button type="button" (click)="Update(formValu1)" class="btn btn-primary ">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

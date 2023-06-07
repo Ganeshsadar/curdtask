@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "first_name": "ganesh",
+      "last_name": "sadar",
+      "email": "ganesgh@hgan",
+      "MoNo": "363553",
+      "salary": "222",
+      "id": 1
+    },
+    {
+      "first_name": "mahesh",
+      "last_name": "sadar",
+      "email": "mahesh@gmail.com",
+      "MoNo": "3332",
+      "salary": "111",
+      "id": 2
+    },
+    {
+      "first_name": "ganesh",
+      "last_name": "sadar",
+      "email": "ganesh1011sadar@gmail.com",
+      "MoNo": "888",
+      "salary": "999",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
